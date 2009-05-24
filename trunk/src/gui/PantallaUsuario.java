@@ -71,7 +71,7 @@ public class PantallaUsuario extends JInternalFrame {
 						labelGuess = new JLabel();
 						jPanel1.add(labelGuess);
 						labelGuess.setText("Guess");
-						labelGuess.setBounds(19, 116, 35, 15);
+						labelGuess.setBounds(19, 116, 89, 15);
 					}
 					{
 						guess = new JTextField();
@@ -83,7 +83,7 @@ public class PantallaUsuario extends JInternalFrame {
 					{
 						jSeparator1 = new JSeparator();
 						jPanel1.add(jSeparator1);
-						jSeparator1.setBounds(144, 43, 10, 227);
+						jSeparator1.setBounds(149, 43, 10, 227);
 						jSeparator1.setOrientation(SwingConstants.VERTICAL);
 					}
 					{
@@ -104,13 +104,14 @@ public class PantallaUsuario extends JInternalFrame {
 						btSetNumero = new JButton();
 						jPanel1.add(btSetNumero);
 						btSetNumero.setText("set");
-						btSetNumero.setBounds(95, 71, 31, 22);
+						btSetNumero.setBounds(89, 71, 43, 22);
 						btSetNumero.addMouseListener(new MouseAdapter() {
 							public void mouseClicked(MouseEvent e) {
 								System.out.println("Clickeo en setear..");
 								controlGui.setNumero(numero.getText());
 								btGuess.setEnabled(true);
 								guess.setEditable(true);
+								guess.setEnabled(true);
 								btSetNumero.setEnabled(false);
 							}
 						});
@@ -129,7 +130,7 @@ public class PantallaUsuario extends JInternalFrame {
 					{
 						labelOponente = new JLabel();
 						jPanel1.add(labelOponente);
-						labelOponente.setText("Oponente");
+						labelOponente.setText("Oponente:");
 						labelOponente.setBounds(166, 43, 72, 15);
 					}
 					{
