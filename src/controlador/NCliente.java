@@ -35,21 +35,28 @@ public class NCliente {
 	private void listen() throws IOException{
 		
 		String inputLine;
-		while ((inputLine = in.readLine()) != null){
+		boolean stop = false;
+		while ((inputLine = in.readLine()) != null || stop){
 			
-			String clave = inputLine.split("@")[0];
-			String valor = inputLine.split("@")[1];
+			System.out.println("msg: "+inputLine);
+			String msg[] = inputLine.split("\\?");
+			String clave = msg[0] += "?";
+			String valor = msg[1];
 			
-			if (clave == NServer.MSG_DIGIT){
+			
+			if (clave.compareToIgnoreCase(NServer.MSG_DIGIT)==0){
+				stop = true;
 				controlador.setDigitos(Integer.parseInt(valor));
 				login();
 			}
 			
-			if (clave == NServer.MSG_GUESS){
+			if (clave.compareToIgnoreCase(NServer.MSG_GUESS)==0){
+				stop = true;
 				checkGuess(valor);
 			}
 			
-			if (clave == NServer.MSG_RESULT){
+			if (clave.compareToIgnoreCase(NServer.MSG_RESULT)==0){
+				stop = true;
 				showResult(valor);
 			}
 		}

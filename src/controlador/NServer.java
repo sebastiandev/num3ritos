@@ -59,17 +59,24 @@ public class NServer {
 	private void listen() throws IOException{
 		
 		String inputLine;
-		while ((inputLine = in.readLine()) != null){
+		boolean stop = false;
+		while ((inputLine = in.readLine()) != null || stop){
 			
-			String clave = inputLine.split("@")[0];
-			String valor = inputLine.split("@")[1];
-			if (clave == MSG_LOGIN){
+			System.out.println("msg en server: "+inputLine);
+			String msg[] = inputLine.split("\\?");
+			String clave = msg[0] += "?";
+			String valor = msg[1];
+			
+			if (clave.compareToIgnoreCase(MSG_LOGIN)==0){
+				stop = true;
 				iniciarPantalla(valor);
 			}
-			if (clave == MSG_GUESS){
+			if (clave.compareToIgnoreCase(MSG_GUESS)==0){
+				stop = true;
 				checkGuess(valor);
 			}			
-			if (clave == MSG_RESULT){
+			if (clave.compareToIgnoreCase(MSG_RESULT)==0){
+				stop = true;
 				showResult(valor);
 			}
 		}

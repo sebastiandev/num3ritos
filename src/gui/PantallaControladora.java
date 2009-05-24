@@ -74,7 +74,8 @@ public class PantallaControladora extends JFrame implements ObservadorControlado
 
 	public void mostrarPantalla(String nombre) {
 		
-		this.usuario.mostrar(nombre);		
+		this.usuario.mostrar(nombre);
+		this.principal.setVisible(false);
 	}
 
 	public void mostrarResultado(String valor) {
